@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "27937037192",
+    "project_id": "todo-app-7bda9",
+    "storage_bucket": "todo-app-7bda9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27937037192:android:8ad9f93175fc38f001b83d",
+        "android_client_info": {
+          "package_name": "com.example.uts_rosa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcsQ6a6Ab40doLBQWP9_n7Az6iUjR3Ng0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
