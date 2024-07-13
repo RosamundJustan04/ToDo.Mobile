@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uts_rosa/provider.dart';
-// import 'package:flutter/widgets.dart';
 import 'package:uts_rosa/todolist.dart';
 
 List<Map<String, dynamic>> todolist = [];
@@ -56,10 +55,24 @@ class _TodoState extends State<Todo> {
     final prov = context.watch<TodoProvider>();
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.amberAccent,
-          foregroundColor: Colors.blueAccent,
+          backgroundColor: Color.fromARGB(255, 246, 214, 214),
+          foregroundColor: Color.fromARGB(255, 132, 133, 135),
           title: Text('TO-DO'),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.list),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TodoList(todolist: todolist),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
+        backgroundColor: Color.fromARGB(255, 244, 232, 225), 
         body: Column(
           // crossAxisAlignment: CrossAxisAlignment.baseline,
           children: [
@@ -161,21 +174,13 @@ class _TodoState extends State<Todo> {
                   Expanded(
                       child: Padding(
                     padding: EdgeInsetsDirectional.all(10),
-                    child:
-                        ElevatedButton(onPressed: () {}, child: Text('Batal')),
+                    child: ElevatedButton(onPressed: () {}, child: Text('Batal')),
                   )),
                   Expanded(
                       child: Padding(
                     padding: EdgeInsetsDirectional.all(10),
                     child: ElevatedButton(
                         onPressed: () async {
-                          // todolist.add({
-                          //   "todoNama": todoNama.text,
-                          //   "todoKegiatan": todoKegiatan.text,
-                          //   "todoTanggalMulai": startDate.toString(),
-                          //   "todoTanggalAkhir": endDate.toString()
-                          // });
-
                           bool res = await prov.createTodo(
                             userId: 1,
                             title: todoNama.text,
@@ -185,19 +190,15 @@ class _TodoState extends State<Todo> {
                           );
 
                           if(res) {
-
-                          Navigator.push(
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: ((context) =>
-                                      TodoList(todolist: todolist))));
-                       
-                          }
-                          else {
+                                builder: (context) => TodoList(todolist: todolist),
+                              ),
+                            );
+                          } else {
                             print('err');
                           }
-
-
                         },
                         child: Text('Simpan')),
                   ))
